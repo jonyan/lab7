@@ -20,7 +20,7 @@ exports.projectInfo = function(req, res) { 
 exports.addProject = function(req, res) {
   var form_data = req.body;
   console.log(form_data);
-  var newProject = new models.Project({ "title" : form_data.project_title, "date" : form_data.date, "summary" : form_data.summary, "image" : form_data.image_url })
+  var newProject = new models.Project({ "title" : form_data.project_title, "date" : new Date(form_data.date), "summary" : form_data.summary, "image" : form_data.image_url })
   newProject.save(afterSaving);
   // make a new Project and save it to the DB
   // YOU MUST send an OK response w/ res.send();
